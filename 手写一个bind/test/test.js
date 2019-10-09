@@ -10,4 +10,8 @@ let fn = function() {
 let fn1 = fn.bind({"name": "blandly"}, 1, 2)
 console.assert(fn.bind2,"bind2是否存在", "1")
 console.assert(fn1().name === "blandly", "2")
-console.assert()
+
+
+
+
+// slice.call(arguments, 0)
