@@ -1,13 +1,18 @@
-button.onclick(function() {
-  let switch1 = true
-  if(action) {
-    switch1 = false
-    let timer = setTimeout(() => {
-      console.log('我是节流函数')
-      switch1 = true
-    }, 2000)
+
+let callback = function() { console.log('假装我是异步/同步函数') }
+
+function 节流函数(fn, time) {
+  let 门 = true
+  return function() {
+    if(门) {
+      fn.call()
+      门 = false
+      setTimeout(() => {
+        门 = true
+      }, time)
+    }
   }
-})
+}
 
 button.onclick(function() {
   if (timer) {
