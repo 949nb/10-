@@ -1,6 +1,12 @@
 {
-  "name": "cli_todo",
-  "version": "1.0.0",
+  "name": "cli_todo_1",
+  "bin": {
+    "t": "cli.js"
+  },
+  "files": [
+    "*.js"
+  ],
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
