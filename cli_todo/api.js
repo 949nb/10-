@@ -1,7 +1,3 @@
-const homedir = require('os').homedir()
-const Home = process.env.HOME || homedir
-const path = require('path')// 处理文件路径的模块
-const fs = require('fs')
 const db = require('./db.js')
 
 module.exports.add = async (title) => {
@@ -13,6 +9,14 @@ module.exports.add = async (title) => {
   // 储存到文件
   await db.write(list)
 }
-module.exports.clear = () => {
-  console.log(`清空待办事项`)
+
+module.exports.clear = async () => {
+  await db.write([]).then(() => {console.log('清除成功')})
+}
+
+module.exports.showAll = async () => {
+  let list = await db.read()
+  list.forEach((task, index) => {
+    console.log(`${task.done ? '[X]' : '[_]'} ${index + 1} - ${task.title}`)
+  })
 }
